@@ -27,8 +27,8 @@ public class DiceRollService {
         double quantity = Double.parseDouble(rollDescriptionSegment.split("d")[0]);
         double numSides = Double.parseDouble(rollDescriptionSegment.split("d")[1]);
         return Arrays.stream(new double[(int)quantity])
-                .map(x -> this.rng.getRandomNumber(1, numSides))
-                .map(Math::round)
+                .map(x -> this.rng.getRandomNumber(0.0001, numSides))
+                .map(Math::ceil)
                 .sum();
     }
 
